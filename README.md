@@ -39,8 +39,7 @@ go build
 
 ### Results
 
-Raw: 81.644 MB
-Rows: 775k
+Raw: 81.644 MB - Rows: 775k
 
 | Format                            | File Size |
 | --------------------------------- | --------- |
