@@ -116,7 +116,10 @@ func writeCapnpFile() {
 	for scanner.Scan() {
 		counter++
 
-		values := strings.Split(scanner.Text(), " ")
+		line := scanner.Text()
+		//fmt.Println(line)
+
+		values := strings.Split(line, " ")
 
 		msg, seg, err := capnp.NewMessage(capnp.SingleSegment(nil))
 		if err != nil {
@@ -142,38 +145,42 @@ func writeCapnpFile() {
 		entry.SetAccountId(accountId)
 
 		entry.SetInterfaceId(values[2])
-		entry.SetSrcAddr(ipStringToInt(values[3]))
-		entry.SetDstAddr(ipStringToInt(values[4]))
 
-		srcPort, err := strconv.ParseUint(values[5], 10, 16)
-		if err != nil {
-			panic(err)
-		}
-		entry.SetSrcPort(uint16(srcPort))
+		if !strings.Contains(line, "NODATA") {
 
-		dstPort, err := strconv.ParseUint(values[6], 10, 16)
-		if err != nil {
-			panic(err)
-		}
-		entry.SetDstPort(uint16(dstPort))
+			entry.SetSrcAddr(ipStringToInt(values[3]))
+			entry.SetDstAddr(ipStringToInt(values[4]))
 
-		protocol, err := strconv.ParseUint(values[7], 10, 8)
-		if err != nil {
-			panic(err)
-		}
-		entry.SetProtocol(uint8(protocol))
+			srcPort, err := strconv.ParseUint(values[5], 10, 16)
+			if err != nil {
+				panic(err)
+			}
+			entry.SetSrcPort(uint16(srcPort))
 
-		packets, err := strconv.ParseUint(values[8], 10, 16)
-		if err != nil {
-			panic(err)
-		}
-		entry.SetPackets(uint16(packets))
+			dstPort, err := strconv.ParseUint(values[6], 10, 16)
+			if err != nil {
+				panic(err)
+			}
+			entry.SetDstPort(uint16(dstPort))
 
-		bytes, err := strconv.ParseUint(values[9], 10, 64)
-		if err != nil {
-			panic(err)
+			protocol, err := strconv.ParseUint(values[7], 10, 8)
+			if err != nil {
+				panic(err)
+			}
+			entry.SetProtocol(uint8(protocol))
+
+			packets, err := strconv.ParseUint(values[8], 10, 16)
+			if err != nil {
+				panic(err)
+			}
+			entry.SetPackets(uint16(packets))
+
+			bytes, err := strconv.ParseUint(values[9], 10, 64)
+			if err != nil {
+				panic(err)
+			}
+			entry.SetBytes(bytes)
 		}
-		entry.SetBytes(bytes)
 
 		start, err := strconv.ParseUint(values[10], 10, 32)
 		if err != nil {
