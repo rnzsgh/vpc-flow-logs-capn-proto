@@ -1,5 +1,5 @@
 
-# Cap'n Proto VPC Flow Logs Compression
+## Cap'n Proto VPC Flow Logs Compression
 
 Any code, applications, scripts, templates, proofs of concept,
 documentation and other items are provided for illustration purposes only.
@@ -20,7 +20,7 @@ limitations under the License.
 
 [Install Cap'n Proto](https://capnproto.org/install.html)
 
-## Setup
+### Setup
 
 Make sure you have $GOPATH/bin in your PATH
 
@@ -36,12 +36,13 @@ capnp compile -I$GOPATH/src/zombiezen.com/go/capnproto2/std -ogo vpc/flowlogs.ca
 go build
 ```
 
-## Results
+### Results
 
 Raw: 81.644 MB
+Rows: 775k
 
-| Format                            | Rows | File Size |
-| --------------------------------- | ---- | --------- |
-| Compressed Text                   | 775k | 400 KB    |
-| Cap'n Proto Packed and Compressed | 775k | 208 KB    |
+| Format                            | File Size |
+| --------------------------------- | --------- |
+| Compressed Text                   | 400 KB    |
+| Cap'n Proto Packed and Compressed | 208 KB    |
 
