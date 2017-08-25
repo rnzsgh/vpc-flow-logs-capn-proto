@@ -1,5 +1,5 @@
 
-## Cap'n Proto VPC Flow Logs Compression
+## Cap'n Proto [VPC Flow Logs](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html) Compression
 
 Any code, applications, scripts, templates, proofs of concept,
 documentation and other items are provided for illustration purposes only.
