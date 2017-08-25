@@ -41,8 +41,8 @@ go build
 
 Raw: 81.644 MB - Rows: 775k
 
-| Format                            | File Size | File Name  |
-| --------------------------------- | --------- | ---------- |
-| Compressed Text                   | 400 KB    | raw.txt.gz |
-| Cap'n Proto Packed and Compressed | 208 KB    | capnp.gz   |
+| Format                            | File Size | File Name  | Compression        |
+| --------------------------------- | --------- | ---------- | -----------        |
+| Compressed Text                   | 400 KB    | raw.txt.gz | zlib -9            |
+| Cap'n Proto Packed and Compressed | 208 KB    | capnp.gz   | packed and zlib -9 |
 
