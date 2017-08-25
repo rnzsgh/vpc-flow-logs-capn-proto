@@ -99,6 +99,7 @@ func writeCapnpFile() {
 	if err != nil {
 		panic(err)
 	}
+	defer gzOut.Close()
 	gzOutBuffer := bufio.NewWriter(gzOut)
 
 	gzIn, err := gzip.NewReader(file)
