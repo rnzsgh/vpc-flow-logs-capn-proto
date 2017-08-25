@@ -61,13 +61,18 @@ func readCapnpFile() {
 
 	for {
 
-		_, err := decoder.Decode()
+		msg, err := decoder.Decode()
 
 		if err != nil {
 			if !strings.Contains(err.Error(), "EOF") {
 				panic(err)
 			}
 			break
+		}
+
+		_, err = flowlogs.ReadRootVpcFlowLogEntry(msg)
+		if err != nil {
+			panic(err)
 		}
 
 		counter++
