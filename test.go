@@ -29,7 +29,7 @@ import (
 	"strconv"
 	"strings"
 
-	flowlogs "github.com/vpc-flow-logs-compression/vpc"
+	flowlogs "github.com/vpc-flow-logs-capn-proto/vpc"
 
 	"zombiezen.com/go/capnproto2"
 )
