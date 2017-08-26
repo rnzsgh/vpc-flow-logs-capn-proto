@@ -39,10 +39,13 @@ go build
 
 ### Results
 
-Rows: 775k
+Rows: 1mm - Raw text size: 104.7 MB - Cap'n Proto file is 11.3% smaller than just compressed text
 
-| Format                            | Compressed Size | Raw Size | File Name  | Compression        |
-| --------------------------------- | --------------- | -------- | ---------- | ------------------ |
-| Compressed Text                   | 400 KB          | 80 MB    | raw.txt.gz | zlib -9            |
-| Cap'n Proto Packed and Compressed | 208 KB          | 46 MB    | capnp.gz   | packed and zlib -9 |
+
+| Format                            | Compressed | Ratio | File        | Method             |
+| --------------------------------- | ---------- | ------| ---------- | ------------------ |
+| Compressed Text                   | 6.2 MB     | 16.9  | raw.txt.gz | zlib -9            |
+| Cap'n Proto Packed and Compressed | 5.5 MB     | 19.0  | capnp.gz   | packed and zlib -9 |
+
+
 
