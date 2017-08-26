@@ -146,7 +146,7 @@ func writeCapnpFile() {
 
 		entry.SetInterfaceId(values[2])
 
-		if !strings.Contains(line, "NODATA") {
+		if !strings.Contains(line, "NODATA") && !strings.Contains(line, "SKIPDATA") {
 
 			entry.SetSrcAddr(ipStringToInt(values[3]))
 			entry.SetDstAddr(ipStringToInt(values[4]))
